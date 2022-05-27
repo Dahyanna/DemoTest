@@ -9,10 +9,10 @@ import Foundation
 import Combine
 
 class MovieViewModel: ObservableObject {
-    var data: NetworkManagerProtocol
-    let didChange = PassthroughSubject<MovieViewModel, Never>()
+    private var data: NetworkManagerProtocol
+    private let didChange = PassthroughSubject<MovieViewModel, Never>()
     
-    init(data: NetworkManagerProtocol) {
+    init(data: NetworkManagerProtocol = NetworkManager()) {
         self.data = data
         getPopularMovies()
         getTopRateMovies()
@@ -44,25 +44,25 @@ class MovieViewModel: ObservableObject {
         }
     }
     
-    func getTopRateMovies() {
+    private func getTopRateMovies() {
         data.getDataApiMovieRate(movieType: .movieRate, completion: {
             self.topRateMovies = $0
         })
     }
     
-    func getPopularMovies() {
+    private func getPopularMovies() {
         data.getDataApiMoviePopular(movieType: .moviePopular, completion: {
             self.popularMovies = $0
         })
     }
     
-    func getNowPlayingMovies() {
+    private func getNowPlayingMovies() {
         data.getDataApiMovieRate(movieType: .movieNowPlaying, completion: {
             self.nowPlayingMovies = $0
         })
     }
     
-    func getUpcommingMovies() {
+    private func getUpcommingMovies() {
         data.getDataApiMoviePopular(movieType: .movieUpcomming, completion: {
             self.upcommingMovies = $0
         })

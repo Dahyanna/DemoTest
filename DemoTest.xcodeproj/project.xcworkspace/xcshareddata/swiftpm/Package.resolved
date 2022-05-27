@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "iactivityindicator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MojtabaHs/iActivityIndicator",
+      "state" : {
+        "revision" : "051ba2db67f019af4b0600c01ba2ca991092daae",
+        "version" : "0.4.1"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -10,14 +10,16 @@ import Combine
 
 class MovieDetailsViewModel: ObservableObject {
     var data: NetworkManagerDetailsMovieProtocol
-    var idmovie: Int
+    @Published var idmovie: Int = .zero{
+        didSet{
+            getListImagesMovies()
+            getDetailsMovies()
+        }
+    }
     let didChange = PassthroughSubject<MovieDetailsViewModel, Never>()
     
-    init(data: NetworkManagerDetailsMovieProtocol, id: Int) {
+    init(data: NetworkManagerDetailsMovieProtocol = NetworkManagerDetailsMovie()) {
         self.data = data
-        self.idmovie = id
-        getListImagesMovies()
-        getDetailsMovies()
     }
     
     @Published var imagesMovies = [Backdrop]() {

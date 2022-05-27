@@ -15,17 +15,11 @@ struct ImagesMovie: Codable {
 // MARK: - Backdrop
 struct Backdrop: Codable, Hashable, Identifiable {
     let id = UUID()
-    let aspectRatio: Double
-    let height: Int
-    let iso639_1: String?
     let filePath: String
     let voteAverage: Double
     let voteCount, width: Int
 
     enum CodingKeys: String, CodingKey {
-        case aspectRatio = "aspect_ratio"
-        case height
-        case iso639_1 = "iso_639_1"
         case filePath = "file_path"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
@@ -68,6 +62,18 @@ struct DetailsMovie: Codable {
         case status, tagline, title, video
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+    }
+    
+    var listGenres: String {
+        var value = "Genre: "
+        genres.forEach() { val in
+            value += (" / \(val.name) ")
+        }
+        return value
+    }
+    
+    var releaseDateText: String {
+        return String(format: MoviesDetailsConstant.textViewDetails.dateAvaluable, releaseDate)
     }
 }
 

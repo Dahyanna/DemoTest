@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentPageMoviesView: View {
-    @ObservedObject var model = MovieViewModel(data: NetworkManager())
+    @ObservedObject var listViewModel = MovieViewModel()
     
        var columns: [GridItem] = [
            GridItem(.flexible()),
@@ -21,7 +21,7 @@ struct ContentPageMoviesView: View {
                    //Popular
                    ScrollView {
                        LazyVGrid(columns: columns, spacing: MoviesViewConstant.pageMovies.spacingCell) {
-                           ForEach(model.popularMovies) { popular in
+                           ForEach(listViewModel.popularMovies) { popular in
                                NavigationLink(destination: MovieDetailsContentView(movie: popular)) {
                                    CardCellView(movie: popular)
                                        .frame(maxWidth: MoviesViewConstant.detailsMovies.widthCell, maxHeight: MoviesViewConstant.detailsMovies.heightCell, alignment: .center)
@@ -39,7 +39,7 @@ struct ContentPageMoviesView: View {
                    //Top Rate
                    ScrollView {
                        LazyVGrid(columns: columns, spacing: MoviesViewConstant.pageMovies.spacingCell) {
-                           ForEach(model.topRateMovies) { movie in
+                           ForEach(listViewModel.topRateMovies) { movie in
                                NavigationLink(destination: MovieDetailsContentView(movie: movie)) {
                                    CardCellView(movie: movie)
                                        .frame(maxWidth: MoviesViewConstant.detailsMovies.widthCell, maxHeight: MoviesViewConstant.detailsMovies.heightCell, alignment: .center)
@@ -57,7 +57,7 @@ struct ContentPageMoviesView: View {
                    //Upcomming
                    ScrollView {
                        LazyVGrid(columns: columns, spacing: MoviesViewConstant.pageMovies.spacingCell) {
-                           ForEach(model.upcommingMovies) { movie in
+                           ForEach(listViewModel.upcommingMovies) { movie in
                                NavigationLink(destination: MovieDetailsContentView(movie: movie)) {
                                    CardCellView(movie: movie)
                                        .frame(maxWidth: MoviesViewConstant.detailsMovies.widthCell, maxHeight: MoviesViewConstant.detailsMovies.heightCell, alignment: .center)
@@ -75,7 +75,7 @@ struct ContentPageMoviesView: View {
                    //Now Playing
                    ScrollView {
                        LazyVGrid(columns: columns, spacing: MoviesViewConstant.pageMovies.spacingCell) {
-                           ForEach(model.nowPlayingMovies) { movie in
+                           ForEach(listViewModel.nowPlayingMovies) { movie in
                                NavigationLink(destination: MovieDetailsContentView(movie: movie)) {
                                    CardCellView(movie: movie)
                                        .frame(maxWidth: MoviesViewConstant.detailsMovies.widthCell, maxHeight: MoviesViewConstant.detailsMovies.heightCell, alignment: .center)

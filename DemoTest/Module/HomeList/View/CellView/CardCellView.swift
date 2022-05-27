@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import iActivityIndicator
 
 struct CardCellView: View {
     let movie: Movie
@@ -19,7 +19,7 @@ struct CardCellView: View {
                             .scaledToFill()
                             .transition(.slide)
                     } placeholder: {
-                        ProgressView()
+                        iActivityIndicator(style: .arcs(width: 8))
                     }
             }
             Text(movie.originalTitle)
