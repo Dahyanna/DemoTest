@@ -10,27 +10,51 @@ import XCTest
 
 class DemoTestTests: XCTestCase {
 
+    let dataMock: [Movie] = [.init(id: 12, adult: false, backdropPath: "none", genreIDS: [9,7,6,5], originalLanguage: "none", originalTitle: "none", overview: "none", popularity: 123213.3123, posterPath: "none", releaseDate: "none", title: "none", video: false, voteAverage: 12321.122, voteCount: 1231232132), .init(id: 13, adult: false, backdropPath: "none", genreIDS: [9,7,6,5], originalLanguage: "none", originalTitle: "none", overview: "none", popularity: 123213.3123, posterPath: "none", releaseDate: "none", title: "none", video: false, voteAverage: 12321.122, voteCount: 1231232132)]
+    
+    var modelList: MovieViewModel!
+    var data: NetworkMoviesStub!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        data = NetworkMoviesStub()
+        modelList = MovieViewModel(data: data)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        modelList = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testWhenExternalDataGiveUsTwoObjectsToprateMovies(){
+        data.movie = dataMock
+        
+        modelList = MovieViewModel(data: data)
+        
+        XCTAssertEqual(modelList.topRateMovies.count, 2)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testWhenExternalDataGiveUsTwoObjectsNowPlayingMovies(){
+        data.movie = dataMock
+        
+        modelList = MovieViewModel(data: data)
+        
+        XCTAssertEqual(modelList.nowPlayingMovies.count, 2)
     }
-
+    
+    
+    func testWhenExternalDataGiveUsTwoObjectsUpcommingMovies(){
+        data.movie = dataMock
+        
+        modelList = MovieViewModel(data: data)
+        
+        XCTAssertEqual(modelList.upcommingMovies.count, 2)
+    }
+    
+    func testWhenExternalDataGiveUsTwoObjectsPopularMovies(){
+        
+        data.movie = dataMock
+        
+        modelList = MovieViewModel(data: data)
+        
+        XCTAssertEqual(modelList.popularMovies.count, 2)
+    }
 }
