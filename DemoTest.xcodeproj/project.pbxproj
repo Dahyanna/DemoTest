@@ -28,6 +28,7 @@
 		84A04B9F284082CA009D6C23 /* NetworkDetailsStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A04B9E284082CA009D6C23 /* NetworkDetailsStub.swift */; };
 		84A04BA22840A24E009D6C23 /* iActivityIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 84A04BA12840A24E009D6C23 /* iActivityIndicator */; };
 		84A04BA728412A9F009D6C23 /* MapperHomeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A04BA628412A9F009D6C23 /* MapperHomeListModel.swift */; };
+		84A04BA928414490009D6C23 /* MovieDetailsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A04BA82841448F009D6C23 /* MovieDetailsTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		84A04B9C284081EF009D6C23 /* NetworkMoviesStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMoviesStub.swift; sourceTree = "<group>"; };
 		84A04B9E284082CA009D6C23 /* NetworkDetailsStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDetailsStub.swift; sourceTree = "<group>"; };
 		84A04BA628412A9F009D6C23 /* MapperHomeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperHomeListModel.swift; sourceTree = "<group>"; };
+		84A04BA82841448F009D6C23 /* MovieDetailsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				849D6AB8283EC72A00E0A4FC /* DemoTestTests.swift */,
+				84A04BA82841448F009D6C23 /* MovieDetailsTest.swift */,
 				84A04B9C284081EF009D6C23 /* NetworkMoviesStub.swift */,
 				84A04B9E284082CA009D6C23 /* NetworkDetailsStub.swift */,
 			);
@@ -379,6 +382,7 @@
 				849D6AB9283EC72A00E0A4FC /* DemoTestTests.swift in Sources */,
 				84A04B9F284082CA009D6C23 /* NetworkDetailsStub.swift in Sources */,
 				84A04B9D284081EF009D6C23 /* NetworkMoviesStub.swift in Sources */,
+				84A04BA928414490009D6C23 /* MovieDetailsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

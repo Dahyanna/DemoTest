@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class MovieDetailsViewModel: ObservableObject {
-    var data: NetworkManagerDetailsMovieProtocol
+    private var data: NetworkManagerDetailsMovieProtocol
     @Published var idmovie: Int = .zero{
         didSet{
             getListImagesMovies()
@@ -34,13 +34,13 @@ class MovieDetailsViewModel: ObservableObject {
         }
     }
     
-    func getListImagesMovies() {
+    private func getListImagesMovies() {
         data.getDataApiListImagesMovie(idMovie: self.idmovie, completion: {
             self.imagesMovies = $0
         })
     }
     
-    func getDetailsMovies() {
+    private func getDetailsMovies() {
         data.getDataApiDetailsMovie(idMovie: self.idmovie, completion: {
             self.detailsMovie = $0
         })

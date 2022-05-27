@@ -12,12 +12,13 @@ class NetworkDetailsStub: NetworkManagerDetailsMovieProtocol {
     var gallery: [Backdrop] = []
     var details: DetailsMovie?
     
-    
     func getDataApiListImagesMovie(idMovie: Int, completion: @escaping ([Backdrop]) -> ()) {
         completion(gallery)
     }
     
     func getDataApiDetailsMovie(idMovie: Int, completion: @escaping (DetailsMovie) -> ()) {
-        completion(details!)
+        if let detail = details {
+            completion(detail)
+        }
     }
 }
